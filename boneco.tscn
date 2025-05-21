@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://1gb3b338u6ap"]
+
+[ext_resource type="Script" uid="uid://3gf5tjw4723v" path="res://boneco.gd" id="1_8gnnr"]
+[ext_resource type="Texture2D" uid="uid://d81dp7ahdul5" path="res://icon.svg" id="2_w8rpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdf1o"]
+size = Vector2(126, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gnnr"]
+size = Vector2(128, 126)
+
+[node name="Boneco" type="Node2D"]
+script = ExtResource("1_8gnnr")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_w8rpb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_mdf1o")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_8gnnr")
+
+[connection signal="mouse_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
