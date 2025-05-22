@@ -9,7 +9,6 @@ size = Vector2(125, 121.5)
 script = ExtResource("1_ddepn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -60)
 shape = SubResource("RectangleShape2D_05orp")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

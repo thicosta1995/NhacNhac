@@ -5,7 +5,11 @@ var turn:int = 0
 var grab:bool =false
 var todosBonecos = []
 var todosEspaços = []
-
+var trocarTurno
+var segundos:float
+var finalizarTurno:bool = false
+var coldown:bool =false
+@onready var timer = $ContagemTimer
 #var dadosBonecos
 #var dadosEspacos
 # Called when the node enters the scene tree for the first time.
@@ -59,13 +63,42 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Troca"):
+	#if Input.is_action_just_pressed("Troca"):
+		#if turn == 0:
+			#turn = 1
+		#else :
+			#turn =0
+	#
+		#print(turn)
+	#_trocarTurno()
+	pass
+func _physics_process(delta: float) -> void:	
+	_trocarTurno()
+	
+func get_turn():
+	return turn
+func _trocarTurno()-> void:
+	if finalizarTurno == true and coldown == false:
 		if turn == 0:
 			turn = 1
 		else :
 			turn =0
-	
+			
+		coldown = true
+		timer.start(1.0)
 		print(turn)
-	
-func get_turn():
-	return turn
+
+
+func _on_button_button_up() -> void:
+	finalizarTurno = true
+	pass # Replace with function body.
+
+
+
+
+
+func _on_contagem_timer_timeout() -> void:
+	finalizarTurno = false
+	coldown = false
+	print("entrou")
+	pass # Replace with function body.

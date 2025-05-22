@@ -45,38 +45,61 @@ scale = Vector2(17.875, 14.125)
 texture = ExtResource("2_0xm2m")
 script = ExtResource("4_lquwl")
 
-[node name="ContagemTimer" type="Timer" parent="TabuleiroTemporario"]
-one_shot = true
-
 [node name="Espacos" type="Node2D" parent="."]
 position = Vector2(881, 171)
 
 [node name="Area2D" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-391, -55)
+position = Vector2(-391, 0)
+player = null
+qplayer = null
+initial_position = null
 
 [node name="Area2D2" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-194, -55)
+position = Vector2(-195, 1)
+player = null
+qplayer = null
+initial_position = null
 
 [node name="Area2D3" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(0, -61)
+position = Vector2(-1, 0)
+player = null
+qplayer = null
+initial_position = null
 
 [node name="Area2D4" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-395, 106)
+position = Vector2(-394, 157)
+player = null
+qplayer = null
+initial_position = null
 
 [node name="Area2D5" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-199, 110)
+position = Vector2(-194, 171)
+player = null
+qplayer = null
+initial_position = null
 
 [node name="Area2D6" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-10, 100)
+position = Vector2(0, 159)
+player = null
+qplayer = null
+initial_position = null
 
 [node name="Area2D7" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-388, 257)
+position = Vector2(-389, 314)
+player = null
+qplayer = null
+initial_position = null
 
 [node name="Area2D8" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-200, 247)
+position = Vector2(-195, 314)
+player = null
+qplayer = null
+initial_position = null
 
 [node name="Area2D9" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-6, 256)
+position = Vector2(-1, 314)
+player = null
+qplayer = null
+initial_position = null
 
 [connection signal="button_up" from="Button" to="TabuleiroTemporario" method="_on_button_button_up"]
-[connection signal="timeout" from="TabuleiroTemporario/ContagemTimer" to="TabuleiroTemporario" method="_on_contagem_timer_timeout"]
