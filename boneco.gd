@@ -6,6 +6,7 @@ var move: bool = false
 var current_area: Area2D = null
 var enter: bool = false
 var pegou_peca: bool =false
+var jaColocouApeça = false
 var namePlay: String
 var podemexer:bool = true
 var dropouPeca:bool =false
@@ -20,8 +21,8 @@ var pos:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scale.y = scale.y * valor/1.5
-	scale.x = scale.x *valor/3
+	#scale.y = scale.y * valor/1.5
+	#scale.x = scale.x *valor/3
 	namePlay = name
 	# Replace with function body.
 

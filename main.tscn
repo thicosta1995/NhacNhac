@@ -14,6 +14,36 @@ offset_right = 1119.0
 offset_bottom = 175.0
 text = "FinalizarTurno"
 
+[node name="Espacos" type="Node2D" parent="."]
+position = Vector2(881, 171)
+
+[node name="Area2D" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-391, -55)
+
+[node name="Area2D2" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
+position = Vector2(-194, -55)
+
+[node name="Area2D3" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
+position = Vector2(0, -61)
+
+[node name="Area2D4" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
+position = Vector2(-395, 106)
+
+[node name="Area2D5" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
+position = Vector2(-199, 110)
+
+[node name="Area2D6" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-10, 100)
+
+[node name="Area2D7" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
+position = Vector2(-388, 257)
+
+[node name="Area2D8" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
+position = Vector2(-200, 247)
+
+[node name="Area2D9" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
+position = Vector2(-6, 256)
+
 [node name="Bonecos" type="Node2D" parent="."]
 
 [node name="bonecoBody" parent="Bonecos" groups=["Boneco"] instance=ExtResource("2_1bvp3")]
@@ -48,35 +78,6 @@ script = ExtResource("4_lquwl")
 [node name="ContagemTimer" type="Timer" parent="TabuleiroTemporario"]
 one_shot = true
 
-[node name="Espacos" type="Node2D" parent="."]
-position = Vector2(881, 171)
-
-[node name="Area2D" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-391, -55)
-
-[node name="Area2D2" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-194, -55)
-
-[node name="Area2D3" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(0, -61)
-
-[node name="Area2D4" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-395, 106)
-
-[node name="Area2D5" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-199, 110)
-
-[node name="Area2D6" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-10, 100)
-
-[node name="Area2D7" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-388, 257)
-
-[node name="Area2D8" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-200, 247)
-
-[node name="Area2D9" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-6, 256)
-
+[connection signal="button_up" from="Button" to="Espacos/Area2D" method="_on_button_button_up"]
 [connection signal="button_up" from="Button" to="TabuleiroTemporario" method="_on_button_button_up"]
 [connection signal="timeout" from="TabuleiroTemporario/ContagemTimer" to="TabuleiroTemporario" method="_on_contagem_timer_timeout"]
