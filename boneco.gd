@@ -8,6 +8,7 @@ var enter: bool = false
 var pegou_peca: bool =false
 var jaColocouApeça = false
 var namePlay: String
+var ocupado:bool = false
 var podemexer:bool = true
 var dropouPeca:bool =false
 var colocandoPeca:bool = false

@@ -2,6 +2,7 @@ extends Area2D
 
 @export var player: bool = true
 var tabuleiro = preload("res://Turn_change.gd")
+@warning_ignore("shadowed_global_identifier")
 var boneco = preload("res://area_boneco.tscn")
 @export var qplayer: int
 var valor_Player: int
@@ -22,9 +23,8 @@ var qualturno:bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	positionTabuleiro = position
-	var overlapping_areas = get_overlapping_areas()
-	for area in overlapping_areas:
-		print("Overlapping with: ", area.name)
+	
+	
 	pass # Replace with function body.
 	
 
@@ -55,6 +55,7 @@ func _on_body_entered(body:Node2D) -> void:
 
 #func _armazenarDados()->void
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 #	armazenar_fimTurno()
 	
@@ -63,25 +64,30 @@ func _process(delta: float) -> void:
 	if qualturno == true:
 		turnchage.colocouApeca = false
 
+
 	
-	if pecaEmCima == true and turnchage.grab == false and turnchage.colocouApeca ==false:
-		if bodies_armazen.is_empty():
+	if pecaEmCima == true and turnchage.grab == false and jaColocouApeca == false:
+		if self.bodies_armazen.is_empty():
 			bodies_in_area[-1].global_position = global_position
-			bodies_in_area[-1].podemexer = false
+			self.bodies_in_area[-1].podemexer = false
+			self.bodies_in_area[-1].ocupado = true
 			bodies_armazen = bodies_in_area.duplicate()
-			turnchage.colocouApeca = true
+			jaColocouApeca ==true
 			
+			self.bodies_in_area.clear()
 		
 			
-		else:
+		elif  !self.bodies_armazen.is_empty()and jaColocouApeca == false:
 			for item in bodies_armazen:
-				if valor_Player<=item.valor:
+				
+				#if bodies_armazen[item] != bodies_in_area[-1]:
+					if valor_Player<=item.valor:
 						return
-				else:
-					bodies_in_area[-1].global_position = global_position
-					bodies_armazen.push_front(bodies_in_area[-1])
-					valor_Player=0
-					turnchage.colocouApeca = true
+					else:
+						bodies_in_area[-1].global_position = global_position
+						bodies_armazen.push_front(bodies_in_area[-1])
+						valor_Player=0
+						turnchage.colocouApeca = true
 					
 					
 					
@@ -89,8 +95,7 @@ func _process(delta: float) -> void:
 		
 		#bodies_armazen.push_front(bodies_in_area[-1])
 			#fazer_algo(pla)
-	var overlapping_areas = get_overlapping_areas()
-	
+
 	#for area in overlapping_areas:
 		#if area.pegou_peca == false:
 			#ocupado = true
@@ -99,7 +104,10 @@ func _process(delta: float) -> void:
 
 
 	pass
-
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("Troca"):
+		jaColocouApeca =! jaColocouApeca
+		print(jaColocouApeca)
 func armazenar_fimTurno()->void:
 	if turnchage.coldown== true:
 		bodies_armazen = bodies_in_area.duplicate()
@@ -111,6 +119,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Boneco"):
 		#fazer_algo(body)
 		var index = bodies_in_area.find(body)
+	
 		bodies_in_area.remove_at(index)
 		pecaEmCima= false
 	pass # Replace with function body.

@@ -3,6 +3,7 @@ extends Node
 var turn:int = 0
 
 var grab:bool =false
+
 var todosBonecos = []
 var todosEspaços = [] 
 var nâoPodeMexer:bool = false
@@ -62,6 +63,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	_trocarTurno()
 	#if Input.is_action_just_pressed("Troca"):
 		#if turn == 0:
 			#turn = 1
@@ -71,8 +73,7 @@ func _process(delta: float) -> void:
 		#print(turn)
 	#_trocarTurno()
 	pass
-func _physics_process(delta: float) -> void:	
-	_trocarTurno()
+
 	
 func set_turn(value:bool):
 	value = finalizarTurno
