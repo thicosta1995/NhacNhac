@@ -1,6 +1,6 @@
 extends Node
 
-var turn:int = 0
+@export var turn:int = 0
 
 var grab:bool =false
 
@@ -9,18 +9,34 @@ var todosEspaços = []
 var nâoPodeMexer:bool = false
 var trocarTurno
 var colocouApeca:bool = false
+var jogadorPegPeca:bool = false
+var pecaEscolhida:Node2D
+var espaçoEscolhido:Node2D
+var especo_x:float
+var espaco_y:float
+var timerAtual:float
+var timerAtiva:float =0.5
+var PosPecaSegurado:Vector2
+var PosLargouApeca:Vector2
+var registrar:bool= false
+var valorDaUltimaPeca:int
 var segundos:float
 var finalizarTurno:bool = false
 var bonecos_filtrados:Array = [CharacterBody2D] 
 var espacos_filtrados:Array = [Area2D] 
-var coldown:bool =false
-@onready var timer:Timer = $ContagemTimer
+var EspacoPosX: float
+var EspacoPosy:float
+var ultimaPeca:Node2D
+var ultimoEspaco:Node2D
+var coldown:bool=false
+@onready var timer = $ContagemTimer
+@onready var ain = $Main
 #var dadosBonecos
 #var dadosEspacos
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	
+	var tabuleiro  # Isso será preenchido pelo script do tabuleiro
+
 	todosBonecos =get_tree().get_nodes_in_group("Boneco")
 
 	print("Inimigos encontrados: ", todosBonecos.size())
@@ -36,65 +52,43 @@ func _ready() -> void:
 #
 #			todosBonecos.append(dadosBonecos)		
 			
-#	pass # Replace with function body.
-	for boneco in todosBonecos:
-		if boneco is CharacterBody2D:
-			bonecos_filtrados.push_front(boneco) 
-			print("Inimigo: ", boneco.name)
-			print("  Posição: ", boneco.global_position)
-			print("  Valor: ", boneco.valor)
-			print("  Time: ", boneco.time)
-			
+func _process(delta: float) -> void:
+	if colocouApeca == true:
+		finalizarTurno = true
+		registrar = true
+	if coldown == true :
+		timerAtual += delta*0.1
+		print(timerAtual)
+	
+
+	if coldown:
+		timerAtual += 0.1
+		if timerAtual >= timerAtiva:
+			coldown = false
+			timerAtual = 0
 		
+func _trocarTurno() -> void:
+	if colocouApeca and not coldown== true and registrar ==false:
+		turn = 1 - turn  # Alterna entre 0 e 1
+		coldown = true
+		colocouApeca = false
+		print("Turno trocado. Novo turno:", turn)
 
-	todosEspaços =get_tree().get_nodes_in_group("Espaco")
 
-	for espaco in todosEspaços:
-		if espaco is Area2D:
-			espacos_filtrados.push_front(espaco)
-			print("espaco: ", espaco.position) 
-#	for espaco in armanezamento_Espacos.get_children():
-#		if espaco.has_method("get"):
-#			dadosEspacos ={
-#				"Posição": espaco.positionTabuleiro
-#			}
-#x'			todosEspaços.append(dadosEspacos)
+	
+	
+		
+		
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	_trocarTurno()
-	#if Input.is_action_just_pressed("Troca"):
-		#if turn == 0:
-			#turn = 1
-		#else :
-			#turn =0
-	#
-		#print(turn)
-	#_trocarTurno()
-	pass
+
 
 	
-func set_turn(value:bool):
-	value = finalizarTurno
-	
-func _trocarTurno()-> void:
-	if finalizarTurno == true and coldown == false:
-		colocouApeca = false
-		
-		if turn == 0:
-			turn = 1
-		else :
-			turn =0
-			
-		coldown = true
-		timer.start(1.0)
-		print(turn)
 
 
-func _on_button_button_up() -> void:
-	finalizarTurno = true
-	pass # Replace with function body.
+
 
 
 
@@ -104,4 +98,14 @@ func _on_contagem_timer_timeout() -> void:
 	finalizarTurno = false
 	coldown = false
 
+	pass # Replace with function body.
+
+
+func _on_button_button_up() -> void:
+	finalizarTurno = true
+	pass # Replace with function body.
+
+
+func _on_button_button_down() -> void:
+	finalizarTurno = true
 	pass # Replace with function body.

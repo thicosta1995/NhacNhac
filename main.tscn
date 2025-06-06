@@ -1,83 +1,95 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6mdkkr40em3f"]
 
+[ext_resource type="Script" uid="uid://p1gab38bi5k" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://m0vunfnva1b4" path="res://TabuleiroTemporario.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dyno5kfuulvii" path="res://boneco_body.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://db3q6lfyy46ti" path="res://area_boneco.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://b3afaq1w1qtyu" path="res://Turn_change.gd" id="4_lquwl"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_lquwl")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 999.0
-offset_top = 57.0
-offset_right = 1119.0
-offset_bottom = 175.0
-text = "FinalizarTurno"
+[node name="ContagemTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [node name="Espacos" type="Node2D" parent="."]
-position = Vector2(881, 171)
+position = Vector2(872, 176)
 
-[node name="Area2D" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-391, -55)
+[node name="area_0_0" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-372, -75)
 
-[node name="Area2D2" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-194, -55)
+[node name="area_0_1" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-192, -79)
 
-[node name="Area2D3" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(0, -61)
+[node name="area_0_2" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-9, -82)
 
-[node name="Area2D4" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-395, 106)
+[node name="area_1_0" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-376, 87)
 
-[node name="Area2D5" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-199, 110)
+[node name="area_1_1" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-180, 90)
 
-[node name="Area2D6" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-10, 100)
+[node name="area_1_2" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-11, 87)
 
-[node name="Area2D7" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-388, 257)
+[node name="area_2_0" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-387, 243)
 
-[node name="Area2D8" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-200, 247)
+[node name="area_2_1" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-190, 248)
 
-[node name="Area2D9" parent="Espacos" groups=["Espaco"] instance=ExtResource("3_h2yge")]
-position = Vector2(-6, 256)
+[node name="area_2_2" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
+position = Vector2(-7, 251)
+
+[node name="Player2" type="Node2D" parent="." groups=["Player2"]]
+position = Vector2(872, 176)
+
+[node name="Player1" type="Node2D" parent="."]
+position = Vector2(872, 176)
 
 [node name="Bonecos" type="Node2D" parent="."]
 
-[node name="bonecoBody" parent="Bonecos" groups=["Boneco"] instance=ExtResource("2_1bvp3")]
-position = Vector2(350, 77)
-valor = 1.0
+[node name="bonecoBody2" parent="Bonecos" groups=["Boneco", "Player1"] instance=ExtResource("2_1bvp3")]
+position = Vector2(335, 236)
 
-[node name="bonecoBody2" parent="Bonecos" groups=["Boneco"] instance=ExtResource("2_1bvp3")]
-position = Vector2(344, 231)
-valor = 2.0
+[node name="bonecoBody" parent="Bonecos" groups=["Boneco", "Player1"] instance=ExtResource("2_1bvp3")]
+position = Vector2(321, 92)
 
-[node name="bonecoBody3" parent="Bonecos" groups=["Boneco"] instance=ExtResource("2_1bvp3")]
-position = Vector2(340, 416)
+[node name="bonecoBody3" parent="Bonecos" groups=["Boneco", "Player1"] instance=ExtResource("2_1bvp3")]
+position = Vector2(331, 421)
+
+[node name="bonecoBody4" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("2_1bvp3")]
+position = Vector2(466, 576)
 valor = 3.0
-
-[node name="bonecoBody4" parent="Bonecos" groups=["Boneco"] instance=ExtResource("2_1bvp3")]
-position = Vector2(622, -82)
-valor = 1.0
 time = 1
 
-[node name="bonecoBody5" parent="Bonecos" groups=["Boneco"] instance=ExtResource("2_1bvp3")]
-position = Vector2(837, -86)
-valor = 2.0
+[node name="bonecoBody5" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("2_1bvp3")]
+position = Vector2(699, 574)
+
+[node name="bonecoBody6" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("2_1bvp3")]
+position = Vector2(868, 583)
+valor = 1.0
 time = 1
 
 [node name="TabuleiroTemporario" type="Sprite2D" parent="."]
+visible = false
 show_behind_parent = true
-position = Vector2(684, 269)
+position = Vector2(675, 274)
 scale = Vector2(17.875, 14.125)
 texture = ExtResource("2_0xm2m")
-script = ExtResource("4_lquwl")
 
-[node name="ContagemTimer" type="Timer" parent="TabuleiroTemporario"]
-one_shot = true
+[node name="Button" type="Button" parent="."]
+offset_left = 990.0
+offset_top = 62.0
+offset_right = 1110.0
+offset_bottom = 180.0
+text = "FinalizarTurno"
 
-[connection signal="button_up" from="Button" to="Espacos/Area2D" method="_on_button_button_up"]
-[connection signal="button_up" from="Button" to="TabuleiroTemporario" method="_on_button_button_up"]
-[connection signal="timeout" from="TabuleiroTemporario/ContagemTimer" to="TabuleiroTemporario" method="_on_contagem_timer_timeout"]
+[node name="LabelVencedor" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="ContagemTimer" to="." method="_on_contagem_timer_timeout"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
