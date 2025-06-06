@@ -1,0 +1,13 @@
+Telas de inicio, de jogo e de vitória do jogador - 1024 x 896 (Pixels Largura x Altura)
+
+Peça Maior: 52 x 56 (Pixels Largura x Altura)
+
+Peça Média: 39 x 42 (Pixels Largura x Altura)
+
+Peça Menor: 26 x 28 (Pixels Largura x Altura)
+
+Botão Menu Iniciar e Iniciar Precionado - 297 x 122 (Pixels Largura x Altura)
+
+Botão Jogo Finalizar Turno e Finalizar Turno Precionado - 170 x 36 (Pixels Largura x Altura)
+
+Botão Jogar Novamente - 436 x 47 (Pixels Largura x Altura)

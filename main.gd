@@ -180,6 +180,9 @@ func _ready() -> void:
 			linha_logica.append([])
 		matriz_espacos.append(linha_visual)
 		matriz_logica.append(linha_logica)
+		
+	
+	
 #
 	print(matriz_espacos)
 func achar_coordenadas_espaco(espaco: Node2D) -> Vector2:
@@ -299,7 +302,12 @@ func pode_colocar_peca(valor: int, y: int, x: int) -> bool:
 	var topo = pilha[-1]
 	return valor > topo.valor  # topo deve ser um boneco com atributo `valor`
 func _process(delta: float) -> void:
-	
+	if TurnChange.turn == 0:
+		label_vencedor.text = "Vez do Jogador Azul"
+	elif TurnChange.turn ==1:
+		label_vencedor.text = "Vez do Jogador Laranja"
+		
+
 	if TurnChange.registrar == true:
 		atualizar()
 		TurnChange.registrar = false
@@ -308,6 +316,12 @@ func _process(delta: float) -> void:
 		var vencedor = verificar_vencedor(matriz_logica)
 		if vencedor != null:
 			print("Jogador vencedor: ", vencedor)
+			if(vencedor == 0):
+				label_vencedor.text ="Jogador Azul Venceu"
+			else:
+				label_vencedor.text ="Jogador Laranja Venceu"
+				
+			
 		
 	
 		#var coords = achar_coordenadas_espaco(TurnChange.ultimoEspaco)

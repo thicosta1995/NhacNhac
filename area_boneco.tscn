@@ -3,12 +3,14 @@
 [ext_resource type="Script" uid="uid://cpkj2225taovg" path="res://Espaço.gd" id="1_ddepn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05orp"]
-size = Vector2(125, 121.5)
+size = Vector2(57.5, 63.75)
 
 [node name="Area2D" type="Area2D"]
+scale = Vector2(1.20342, 0.875897)
 script = ExtResource("1_ddepn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_05orp")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

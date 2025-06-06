@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyno5kfuulvii"]
+[gd_scene load_steps=5 format=3 uid="uid://jgqahgcvlgkt"]
 
-[ext_resource type="Script" uid="uid://3gf5tjw4723v" path="res://boneco.gd" id="1_tsw4m"]
-[ext_resource type="Texture2D" uid="uid://di4gpmw3gefeh" path="res://nhac zip/Pote Peça Azul Pequena.png" id="2_tsw4m"]
+[ext_resource type="Script" uid="uid://3gf5tjw4723v" path="res://boneco.gd" id="1_64upi"]
+[ext_resource type="Texture2D" uid="uid://bvr60r00frb7e" path="res://nhac zip/Pote Peça Azul Grande.png" id="2_64upi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fd8ll"]
 size = Vector2(126, 129)
@@ -9,19 +9,19 @@ size = Vector2(126, 129)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1h0r"]
 size = Vector2(128, 126)
 
-[node name="PotePequenoAzul" type="CharacterBody2D"]
-script = ExtResource("1_tsw4m")
+[node name="PoteGrandeAzul" type="CharacterBody2D"]
+script = ExtResource("1_64upi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tsw4m")
+texture = ExtResource("2_64upi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -0.5)
-scale = Vector2(0.297979, -0.308224)
+scale = Vector2(0.546106, 0.484412)
 shape = SubResource("RectangleShape2D_fd8ll")
 
 [node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(0.297979, -0.308224)
+scale = Vector2(0.546106, 0.484412)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_o1h0r")

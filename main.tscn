@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6mdkkr40em3f"]
+[gd_scene load_steps=11 format=3 uid="uid://b6mdkkr40em3f"]
 
 [ext_resource type="Script" uid="uid://p1gab38bi5k" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="Texture2D" uid="uid://m0vunfnva1b4" path="res://TabuleiroTemporario.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dyno5kfuulvii" path="res://boneco_body.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://delpf8xswvcb7" path="res://PoteMedioAzul.tscn" id="3_5vw27"]
+[ext_resource type="PackedScene" uid="uid://jgqahgcvlgkt" path="res://PoteGrandeAzul.tscn" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://db3q6lfyy46ti" path="res://area_boneco.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://mxf17216lgif" path="res://nhac zip/Background Do Jogo.png" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://2qwc72fq0kih" path="res://PoteMedioVermelho.tscn" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://c5tbb67q3br03" path="res://PoteGrandeVermelho.tscn" id="7_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dx4pq2pll3k1o" path="res://PotePequenoVermelho.tscn" id="7_kek77"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lquwl")
@@ -16,31 +22,40 @@ one_shot = true
 position = Vector2(872, 176)
 
 [node name="area_0_0" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-372, -75)
+position = Vector2(-315, 189)
+scale = Vector2(1.05281, 0.875902)
 
 [node name="area_0_1" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-192, -79)
+position = Vector2(-237, 190)
+scale = Vector2(1.04342, 0.915897)
 
 [node name="area_0_2" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-9, -82)
+position = Vector2(-159, 190)
+scale = Vector2(1.00342, 0.875897)
 
 [node name="area_1_0" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-376, 87)
+position = Vector2(-314, 268)
+scale = Vector2(1.00342, 0.875897)
 
 [node name="area_1_1" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-180, 90)
+position = Vector2(-236, 267)
+scale = Vector2(1.00342, 0.875897)
 
 [node name="area_1_2" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-11, 87)
+position = Vector2(-159, 268)
+scale = Vector2(0.963421, 0.875897)
 
 [node name="area_2_0" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-387, 243)
+position = Vector2(-315, 346)
+scale = Vector2(1.06455, 0.875897)
 
 [node name="area_2_1" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-190, 248)
+position = Vector2(-237, 346)
+scale = Vector2(1.04699, 0.905399)
 
 [node name="area_2_2" parent="Espacos" groups=["Espaco", "Espacos"] instance=ExtResource("3_h2yge")]
-position = Vector2(-7, 251)
+position = Vector2(-159, 345)
+scale = Vector2(1.00342, 0.875897)
 
 [node name="Player2" type="Node2D" parent="." groups=["Player2"]]
 position = Vector2(872, 176)
@@ -50,25 +65,30 @@ position = Vector2(872, 176)
 
 [node name="Bonecos" type="Node2D" parent="."]
 
-[node name="bonecoBody2" parent="Bonecos" groups=["Boneco", "Player1"] instance=ExtResource("2_1bvp3")]
-position = Vector2(335, 236)
+[node name="PoteMedioAzul" parent="Bonecos" groups=["Boneco", "Player1"] instance=ExtResource("3_5vw27")]
+position = Vector2(386, 434)
+valor = 2.0
+
+[node name="PoteGrandeAzul" parent="Bonecos" groups=["Boneco", "Player1"] instance=ExtResource("3_7mycd")]
+position = Vector2(385, 331)
+valor = 3.0
 
 [node name="bonecoBody" parent="Bonecos" groups=["Boneco", "Player1"] instance=ExtResource("2_1bvp3")]
-position = Vector2(321, 92)
+position = Vector2(382, 533)
+valor = 1.0
 
-[node name="bonecoBody3" parent="Bonecos" groups=["Boneco", "Player1"] instance=ExtResource("2_1bvp3")]
-position = Vector2(331, 421)
+[node name="PoteMedioLaranja" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("6_kek77")]
+position = Vector2(902, 427)
+valor = 2.0
+time = 1
 
-[node name="bonecoBody4" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("2_1bvp3")]
-position = Vector2(466, 576)
+[node name="PoteGrandeLaranja" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("7_4c57u")]
+position = Vector2(898, 347)
 valor = 3.0
 time = 1
 
-[node name="bonecoBody5" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("2_1bvp3")]
-position = Vector2(699, 574)
-
-[node name="bonecoBody6" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("2_1bvp3")]
-position = Vector2(868, 583)
+[node name="PotePequenoLaranja" parent="Bonecos" groups=["Boneco", "Player2"] instance=ExtResource("7_kek77")]
+position = Vector2(898, 509)
 valor = 1.0
 time = 1
 
@@ -80,6 +100,7 @@ scale = Vector2(17.875, 14.125)
 texture = ExtResource("2_0xm2m")
 
 [node name="Button" type="Button" parent="."]
+visible = false
 offset_left = 990.0
 offset_top = 62.0
 offset_right = 1110.0
@@ -87,8 +108,17 @@ offset_bottom = 180.0
 text = "FinalizarTurno"
 
 [node name="LabelVencedor" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 587.0
+offset_top = 628.0
+offset_right = 663.0
+offset_bottom = 651.0
+text = "dxcxzxczc"
+
+[node name="BackgroundDoJogo" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(635, 441)
+texture = ExtResource("6_272bh")
+metadata/_edit_lock_ = true
 
 [connection signal="timeout" from="ContagemTimer" to="." method="_on_contagem_timer_timeout"]
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

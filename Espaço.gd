@@ -134,6 +134,9 @@ func _process(delta: float) -> void:
 			if item.valor < maiorValor:
 				
 				item.podemexer = false
+			elif item.valor >= maiorValor:
+					item.podemexer = true
+					item.ocupado = false
 	# corrige aqui
 		
 			armazenar_fimTurno()
